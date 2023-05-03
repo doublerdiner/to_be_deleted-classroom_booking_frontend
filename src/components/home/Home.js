@@ -4,6 +4,8 @@ import { useState } from "react"
 const Home = ({date, updateDate, user})=>{
     const [currentPeriod, setCurrentPeriod] = useState(1)
 
+
+
     return(
         <>
         <h1>Home</h1>

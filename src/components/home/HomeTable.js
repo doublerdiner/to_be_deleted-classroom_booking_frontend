@@ -1,21 +1,34 @@
 import { Table } from "react-bootstrap"
 import TableRow from "./TableRow"
-const HomeTable = (user, currentPeriod, date)=>{
-    const selectedDay = date
-    console.log(user)
+import { useState } from "react"
+const HomeTable = ({date, user, currentPeriod})=>{
+    const selectedDay = date.dayName
 
-    const selectedLesson = user.lessons
-    // console.log(user.lessons)
+    const lesson = user.lessons.filter((lesson)=>{
+        return lesson.dayType === selectedDay && lesson.period === currentPeriod
+    })
+    console.log(lesson)
+
 
     return(
         <>
+        {lesson.length > 0?
+        <aside>
+            <p>{lesson[0].name}</p>
+            <p>Year:</p>
+            <p>{lesson[0].yearGroup}</p>
+        </aside>
+        :<></>}
         <table class="table table-hover">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Student Year</th>
+            <th scope="col">Absences</th>
+            <th scope="col">Demerits</th>
+            <th scope="col">Absence Flag</th>
+            <th scope="col">Demerit Flag</th>
             </tr>
         </thead>
         <tbody>
