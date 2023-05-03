@@ -1,6 +1,6 @@
 export const getDate = (dateArgument)=>{
     const returnValue = {}
-    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const date = dateArgument
     returnValue.dayName = weekdays[date.getDay()]
     returnValue.day = date.getDate();

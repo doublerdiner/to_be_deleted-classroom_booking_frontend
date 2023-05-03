@@ -1,9 +1,11 @@
 import DateAndPeriod from "./DateAndPeriod"
-const Home = ({date})=>{
+import HomeTable from "./HomeTable"
+const Home = ({date, updateDate})=>{
     return(
         <>
         <h1>Home</h1>
-        <DateAndPeriod date={date}/>
+        <DateAndPeriod date={date} updateDate={updateDate}/>
+        <HomeTable/>
         </>
     )
 }

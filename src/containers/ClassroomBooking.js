@@ -15,13 +15,18 @@ const ClassroomBooking = ()=>{
         setDate(today)
     },[])
 
+    const updateDate = (date)=>{
+        const newDate = getDate(date)
+        setDate(newDate)
+    }
+
     
 
 return(
     <Router>
         <HeaderBar/>
         <Routes>
-            <Route path="/" element={<Home date={date}/>}></Route>
+            <Route path="/" element={<Home date={date} updateDate={updateDate}/>}></Route>
             <Route path="/joiners" element={<Joiners/>}></Route>
             <Route path="/student" element={<Student/>}></Route>
         </Routes>
