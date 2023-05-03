@@ -1,5 +1,12 @@
 import { Table } from "react-bootstrap"
-const HomeTable = ()=>{
+import TableRow from "./TableRow"
+const HomeTable = (user, currentPeriod, date)=>{
+    const selectedDay = date
+    console.log(user)
+
+    const selectedLesson = user.lessons
+    // console.log(user.lessons)
+
     return(
         <>
         <table class="table table-hover">
@@ -28,6 +35,9 @@ const HomeTable = ()=>{
             <th scope="row">3</th>
             <td colspan="2">Larry the Bird</td>
             <td>@twitter</td>
+            </tr>
+            <tr>
+                <TableRow/>
             </tr>
         </tbody>
         </table>
