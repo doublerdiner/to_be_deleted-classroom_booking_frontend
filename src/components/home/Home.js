@@ -1,7 +1,7 @@
 import DateAndPeriod from "./DateAndPeriod"
 import HomeTable from "./HomeTable"
 import { useState } from "react"
-const Home = ({date, updateDate, user})=>{
+const Home = ({date, updateDate, user, submitAbsence})=>{
     const [currentPeriod, setCurrentPeriod] = useState(1)
 
 
@@ -18,7 +18,8 @@ const Home = ({date, updateDate, user})=>{
         <HomeTable 
             date={date}
             user={user} 
-            currentPeriod={currentPeriod}/>
+            currentPeriod={currentPeriod}
+            submitAbsence={submitAbsence}/>
         </>
     )
 }

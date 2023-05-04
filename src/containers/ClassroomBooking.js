@@ -6,6 +6,8 @@ import Student from "../components/student/Student"
 import { useEffect, useState } from "react"
 import { getDate } from "../helpers/GetDate"
 import { getUsers } from "./Service"
+import { getStudent } from "./Service"
+import { postAbsence } from "./Service"
 
 
 const ClassroomBooking = ()=>{
@@ -19,8 +21,6 @@ const ClassroomBooking = ()=>{
         getUsers().then(allUsers=>{
             setUser(allUsers[0])
         })
-
-
     },[])
 
     const updateDate = (date)=>{
@@ -28,7 +28,17 @@ const ClassroomBooking = ()=>{
         setDate(newDate)
     }
 
-    // console.log(user)
+    const submitAbsence = (data, studentId)=>{
+        console.log(studentId)
+        const student = getStudent(studentId)
+        console.log(student)
+        data.student.id = studentId
+        postAbsence(data)
+        console.log(data)
+        // getUsers().then(allUsers=>{
+        //     setUser(allUsers[0])
+        // })
+    }
 
 return(
     <>
@@ -36,7 +46,7 @@ return(
     <Router>
         <HeaderBar user={user}/>
         <Routes>
-            <Route path="/" element={<Home date={date} updateDate={updateDate} user={user}/>}></Route>
+            <Route path="/" element={<Home date={date} updateDate={updateDate} user={user} submitAbsence={submitAbsence}/>}></Route>
             <Route path="/joiners" element={<Joiners/>}></Route>
             <Route path="/student" element={<Student/>}></Route>
         </Routes>
